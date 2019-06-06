@@ -229,45 +229,114 @@ $programmingLanguages = array(
 // Make the top 2 headers white
 // Make the labels for inputs and the footer a red or pink
 ?>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <style>
 body{
-	
+	text-align: center;
+	background-color: #1450AF;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+    background-repeat: no-repeat;
+    background-image: url("awf_map.jpg");
+    background-size: 75%;
+    background-position-x: center;
+    background-position-y: center;
+
+
+}
+h1{
+    background-color:rgba(91, 162, 255, 0.541);
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-radius: 10pt;
+    padding: 20px;
+    color: #AF0B14;
+
+}
+h2{
+    
+    background-color:rgba(91, 162, 255, 0.541);
+	color: #AF0B14;
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    border-radius: 10pt;
+    padding: 4px;
+
+}
+h3{
+    background-color:rgba(91, 162, 255, 0.541);
+	color: #AF0B14;
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    border-radius: 10pt;
+    padding: 4px;
+}
+.time{
+	padding: 40px;
+}
+.languages{
+	padding: 40px;
+}
+footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 20px;
+    color: #AF0B14;
+    background-color: #FAF5F3;
+
 }
 </style>
 
-<h1> My Favorite Programming Languages </h1>
-
-<h2> By: Your Name - Date Test was Taken</h2>
-<br />
-<?php
-// Display the time of the page loading 
-// Format: date (Month/Day/Year) and time (Hour:Minutes:Seconds)
-// Disable modifying the text box after loading
-$dateTime = "Current Date and Time";
-
-echo '<h3>Current Date and Time:</h3>';
-echo '<input type="text" value="'.$dateTime.'" >';
-?>
-
-<br />
-<br />
-<br />
-
-<?php
-// Fill in the below Drop Down with above array data
-?>
-<h3>Favorite Programming Language:</h3>
-<select>
-
-<?php
-	echo '<option value="Enter Option Data">Enter Option Data</option>';					
-?>						
-							
-</select>
-
-<br />
-<br />
-<br />
-<br />
-<p>&#169; 2019 World Shipping, Inc.</p>
+    <section>
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                        <h1> My Favorite Programming Languages </h1>
+	  
+                        <h2> By: Melinda Russell - June 6, 2019</h2>
+                </div>
+            </div>
+            <hr>
+            <div class="row time">
+                <div class="col-lg-12">
+                        <?php
+                        // Display the time of the page loading 
+                        // Format: date (Month/Day/Year) and time (Hour:Minutes:Seconds)
+                        // Disable modifying the text box after loading
+                        date_default_timezone_set("America/New_York");
+                        $dateTime = date("m/d/Y h:i:s");
+                        
+                        echo '<h3>Current Date and Time:</h3>';
+                        echo '<input type="text" value="'.$dateTime.'" disabled >';
+                        ?>
+                </div>
+            </div>
+            <div class="row languages">
+                <div class="col-lg-12">
+                        <?php
+                        // Fill in the below Drop Down with above array data
+                        ?>
+                        <h3>Favorite Programming Language:</h3>
+                        <select>
+                        
+                        <?php
+                        foreach($programmingLanguages as $key => $value):
+                            echo '<option class="inputLabel" value="'.$key.'">'.$value.'</option>';
+                        endforeach;
+                                            
+                        ?>						
+                                                    
+                        </select>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <footer class="inputLabel">&#169; 2019 World Shipping, Inc.</footer>
